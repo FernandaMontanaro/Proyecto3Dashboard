@@ -71,11 +71,12 @@
             <!--End Sidebar-->
 
             <!--Main-->
+            
             <main class="main-container">
                 <div class="main-title">
                     <h2>Dashboard</h2>
                 </div>
-                
+
                 <div class="main-cards">
                     
                     <div class="card">
@@ -118,10 +119,65 @@
                         <div id="bar-chart"></div>
                     </div>
 
-                    <div class="charts-card">
-                        <h2 class="chart-title">Purchase and Sales Orders</h2>
-                        <div id="area-chart"></div>
+                    <div class="cardweather">
+
+                        <h1>Current Weather</h1>
+                        
+                        <div class="search">
+                            <input type="text" placeholder="Enter city name" spellcheck="false">
+                            <button><img src="images/search.png"></button>
+                        </div>
+                        <div class="weather">
+                            
+                            <h1 class="temp">22°C</h1>
+                            <h2 class="city">New York</h2>
+                            <div class="details">
+                                <div class="col">
+                                    <img src="images/humidity.png">
+                                    <div>
+                                        <p class="humidity">50%</p>
+                                        <p>Humidity</p>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <img src="images/wind.png">
+                                    <div>
+                                        <p class="wind">15km/h</p>
+                                        <p>Wind Speed</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    
+                    
+                    
+                    <script>
+                    
+                        const apiURL = "http://api.weatherstack.com/current?access_key=2c20eda75314d9bedadc805395dbd1d7&query=";
+                    
+                        const searchBox = document.querySelector(".search input");
+                        const searchBtn = document.querySelector(".search button");
+                    
+                        async function checkWeather(city){
+                            const response = await fetch(apiURL + city);
+                            var data = await response.json();
+                    
+                            console.log(data);
+                    
+                            document.querySelector(".city").innerHTML = data.location.name;
+                            document.querySelector(".temp").innerHTML = data.current.temperature + "°C";
+                            document.querySelector(".humidity").innerHTML = data.current.humidity + "%";
+                            document.querySelector(".wind").innerHTML = data.current.wind_speed + " km/h";
+                            
+                    
+                        }
+                    
+                        searchBtn.addEventListener("click", ()=>{
+                            checkWeather(searchBox.value);    
+                        })
+                    
+                    </script>
 
                 </div>
 
@@ -130,6 +186,14 @@
             <!--End Main-->
         </div>
 
+<!--Footer-->
+
+        <div class ="footer">
+            <p>Proyecto 3 - Dashboard</p>
+            <p>Fernanda Montanaro</p>
+            </div>
+
+
 <!--Scripts-->
 
 <!--Apex Charts-->
@@ -137,6 +201,8 @@
 
         <!--Custom JS-->
         <script src="js/scripts.js"></script>
+
+
 
     </body>
 </html>

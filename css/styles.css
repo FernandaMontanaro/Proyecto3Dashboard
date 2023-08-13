@@ -151,7 +151,7 @@ body {
     margin-top: 6opx;
 }
 
-.chats-card {
+.charts-card {
     background-color: #263043;
     margin-bottom: 20px;
     padding: 25px;
@@ -167,6 +167,100 @@ body {
     justify-content: center;
 }
 
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+
+.cardweather{
+    justify-content: space-around;
+    width: 90%;
+    max-width: 470px;
+    background: linear-gradient(135deg, #00feba, #5b548a);
+    color: #fff;
+    margin: 100px auto 100px;
+    border-radius: 20px;
+    padding: 40px 35px;
+}
+
+.search{
+width: 100%;
+display: flex;
+align-items: center;
+
+}
+
+.search input{
+    border: 0;
+    outline: 0;
+    background: #ebfffc;
+    color: #555;
+    padding: 10px 25px;
+    height: 60px;
+    border-radius: 30px;
+    flex: 1;
+    margin-right: 16px;
+    font-size: 18px;
+}
+
+.search button{
+    border: 0;
+    outline: 0;
+    background: #ebfffc;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+.search button img{
+  width: 16px;  
+}
+
+
+.weather h1{
+    font-size: 80px;
+    font-weight: 500;
+    text-align: center;
+}
+.weather h2{
+    font-size: 45px;
+    font-weight: 400;
+    margin-top: -10px;
+    text-align: center;
+}
+.details{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-top: 20px;
+}
+.col{
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.col img{
+    width: 40px;
+    margin-right: 10px;
+}
+
+.humidity, .wind{
+    font-size: 28px;
+    margin-top: -6px;
+}
+
+.footer {
+    font-style: italic;
+    color: #ebfffc;
+}
+
 /* ---------MEDIA QUERIES------------*/
 
 /* Medium <= 992px */
@@ -177,7 +271,8 @@ body {
         grid-template-rows: 0.2fr 3fr;
         grid-template-areas: 
         "header"
-        "main";
+        "main"
+        "footer";
     }
 
     #sidebar {
@@ -190,6 +285,8 @@ body {
 
     .sidebar-title > span {
         display: inline;
+    }
+    .cardweather {display: flow-root;
     }
 }
 
@@ -205,6 +302,11 @@ body {
         grid-template-columns: 1fr;
         margin-top: 30px;
     }
+
+    .cardweather{
+        grid-template-columns: 1fr;
+        margin-top: 30px;
+    }
 }
 
 /* Extra Small <= 576px */
@@ -212,6 +314,9 @@ body {
 @media screen and (max-width: 576px) {
     .header-left {
         display: none;
+    }
+    .cardweather {
+        display: -moz-popup;
     }
 }
 
