@@ -128,4 +128,6 @@ var barChartoptions = {
 };
 
 var barChart = new ApexCharts(document.querySelector("#bar-chart"), barChartoptions);
-  barChart.render()
+  barChart.render();
+
+  
